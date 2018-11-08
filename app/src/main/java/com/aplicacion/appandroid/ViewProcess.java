@@ -16,6 +16,7 @@ import java.util.Map;
 public class ViewProcess extends Activity {
 
     public static ArrayList<String> procesos = null;
+    public static String processID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
