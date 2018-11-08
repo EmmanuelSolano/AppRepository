@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PropertiesProcess">
+
+    <Button
+        android:id="@+id/btn_memoriaReal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="118dp"
+        android:layout_marginLeft="118dp"
+        android:layout_marginTop="59dp"
+        android:text="Memoria Real"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_memoriaVirtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Memoria Virtual"
+        app:layout_constraintStart_toStartOf="@+id/btn_memoriaReal"
+        app:layout_constraintTop_toBottomOf="@+id/btn_memoriaReal" />
+
+    <Button
+        android:id="@+id/btn_cpu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="CPU"
+        app:layout_constraintStart_toStartOf="@+id/btn_memoriaVirtual"
+        app:layout_constraintTop_toBottomOf="@+id/btn_memoriaVirtual" />
+
+    <Button
+        android:id="@+id/btn_prioridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Prioridad"
+        app:layout_constraintStart_toStartOf="@+id/btn_cpu"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cpu" />
+
+    <Button
+        android:id="@+id/btn_tiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:text="Tiiempo de ejecución"
+        app:layout_constraintStart_toStartOf="@+id/btn_prioridad"
+        app:layout_constraintTop_toBottomOf="@+id/btn_prioridad" />
+</android.support.constraint.ConstraintLayout>
