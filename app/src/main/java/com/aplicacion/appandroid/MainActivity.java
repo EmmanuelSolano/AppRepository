@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
             protected Void doInBackground(Integer... params) {
                 try {
                     List_Process list = new List_Process();
-                    //list.lista();
+                    list.lista();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
         process.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent( MainActivity.this, PropertiesProcess.class);
+                Intent intent=new Intent( MainActivity.this, ViewProcess.class);
 
                 Bundle bundle=new Bundle();
                 bundle.putString("NAME", "Procesos");
