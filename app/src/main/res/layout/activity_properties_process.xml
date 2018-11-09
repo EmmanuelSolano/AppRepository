@@ -52,4 +52,37 @@
         android:text="Tiiempo de ejecución"
         app:layout_constraintStart_toStartOf="@+id/btn_prioridad"
         app:layout_constraintTop_toBottomOf="@+id/btn_prioridad" />
+
+    <Button
+        android:id="@+id/btn_killProcess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="5dp"
+        android:text="Terminar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_stopProcess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginBottom="5dp"
+        android:text="Detener"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_killProcess" />
+
+    <Button
+        android:id="@+id/btn_createChild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="5dp"
+        android:text="Crear Hijos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_stopProcess" />
 </android.support.constraint.ConstraintLayout>

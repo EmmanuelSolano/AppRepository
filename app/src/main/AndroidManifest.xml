@@ -23,7 +23,8 @@
         <activity android:name=".ViewProcess" />
         <activity android:name=".ViewProcess1" />
         <activity android:name=".PropertiesProcess" />
-        <activity android:name=".InformationOfProcessSelected"></activity>
+        <activity android:name=".InformationOfProcessSelected" />
+        <activity android:name=".SelectState"></activity>
     </application>
 
 </manifest>

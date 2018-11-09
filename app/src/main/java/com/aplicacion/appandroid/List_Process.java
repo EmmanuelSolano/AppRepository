@@ -10,9 +10,10 @@ import java.io.InputStream;
 
 public class List_Process {
 
-    public static String listOfProcess = null;
+    public static String listOfProcess = "";
+    public static String userName="", hostServer="";
 
-    public void lista(){
+    public void lista(String userP, String ip){
         try{
             JSch jsch=new JSch();
 
@@ -21,11 +22,12 @@ public class List_Process {
 //        host=arg[0];
 //      }
 //      else{
-            host="emmanuel@192.168.8.101"; // enter username and ipaddress for machine you need to connect
+            host=userP+"@"+ip; // enter username and ipaddress for machine you need to connect
 //      }
             String user=host.substring(0, host.indexOf('@'));
             host=host.substring(host.indexOf('@')+1);
-
+            userName = user;
+            hostServer = host;
             Session session=jsch.getSession(user, host, 22);
 
             // username and password will be given via UserInfo interface.
@@ -70,16 +72,61 @@ public class List_Process {
         }
     }
 
+    public boolean modifyProcess(String action,String pid){
+        boolean retVal=false;
+        if(!userName.equals("") && !hostServer.equals("")){
+            try{
+
+                JSch jsch=new JSch();
+
+
+
+                Session session=jsch.getSession(userName, hostServer, 22);
+
+                // username and password will be given via UserInfo interface.
+                UserInfo ui=new MyUserInfo();
+                session.setUserInfo(ui);
+                session.connect();
+
+                String command=  "cd Desktop && ./"+action+" "+pid; // enter any command you need to execute
+
+                Channel channel=session.openChannel("exec");
+                ((ChannelExec)channel).setCommand(command);
+
+
+                channel.setInputStream(null);
+
+                ((ChannelExec)channel).setErrStream(System.err);
+
+                InputStream in=channel.getInputStream();
+
+                channel.connect();
+                channel.disconnect();
+                session.disconnect();
+                retVal=true;
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
+        }
+        return retVal;
+    }
+
     public static class MyUserInfo implements UserInfo{
         public String getPassword(){ return passwd; }
         public boolean promptYesNo(String str){
             str = "Yes";
-            return true;}
+            return true;
+        }
 
         String passwd;
 
-        public String getPassphrase(){ return null; }
-        public boolean promptPassphrase(String message){ return true; }
+        public String getPassphrase(){
+            return null;
+        }
+        public boolean promptPassphrase(String message){
+            return true;
+        }
         public boolean promptPassword(String message){
             passwd="12345"; // enter the password for the machine you want to connect.
             return true;
